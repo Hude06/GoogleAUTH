@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Login</title>
+    <!-- Include the Google API library -->
+    <script src="https://apis.google.com/js/platform.js"></script></head>
+<body>
+    <h1>Welcome to our Website</h1>
+    <p>Sign in with your Google account:</p>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log("User ID: " + profile.getId());
+            console.log("Name: " + profile.getName());
+            console.log("Email: " + profile.getEmail());
+            // You can send this user information to your server for authentication.
+        }
+    </script>
+
+    <script>
+        gapi.load('auth2', function () {
+            gapi.auth2.init({
+                client_id: '84780838229-20q7qa2j8rg3nvbfh1eldnaq0nleoi7n.apps.googleusercontent.com',
+            });
+        });
+    </script>
+</body>
+</html>
